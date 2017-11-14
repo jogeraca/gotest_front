@@ -1,0 +1,83 @@
+<html>
+<head>
+<script src="validation.js" type="text/javascript"/></script>
+
+</head>
+<body>
+<style type="text/css">.error {color: red;}</style>
+<style type="text/css">.result {color: green;}</style>
+<h1>Users</h1>
+<form action="/" method="POST" name="form_users" novalidate>
+ 	<div>
+		{{ with .Errors.Name }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+		<label>Your Name</label>
+		<input type="text" name="name" value=" {{ .Name }} ">
+	</div>
+		
+	<div>
+	  {{ with .Errors.Email }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+		<label>Your email:</label>
+		<input type="email" name="email" value=" {{ .Email }} ">
+	</div>
+	<div>
+	  {{ with .Errors.Username }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+		<label>Your user name</label>
+		<input type="text" name="username" value=" {{ .Username }} ">
+	</div>
+	<div>
+		{{ with .Errors.Password  }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+	
+		<label>Your Password</label>
+		<input type="password" id="password" name="password" >
+		<input type="password" id="confirm_password" name="confirm_password" onblur="validatePassword()" >
+
+	</div>
+	<div>
+		{{ with .Errors.Telephone }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+	
+		<label>Your Telephone</label>
+		<input type="text" name="telephone" value=" {{ .Telephone }} ">
+	</div>
+		<div>
+		{{ with .Errors.Country }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+	
+		<label>Your country </label>
+		<input type="text" name="country" value=" {{ .Country }} ">
+	</div>
+	<div>
+		{{ with .Errors.city }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+	
+		<label>Your city </label>
+		<input type="text" name="city" value=" {{ .City }} ">
+	</div>
+	
+	<div>
+		{{ with .Errors.Address }}
+		<p class="error">{{ . }}</p>
+    {{ end }} 
+		<label>Your Address</label>
+		<input type="text" name="address" value=" {{ .Address }} ">
+	</div>
+	
+	<div>
+		<input type="submit" value="Send message">
+	</div>
+	<div>
+		{{ .Result }}
+	</div>
+	</body>
+	</html>
